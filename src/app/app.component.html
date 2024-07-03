@@ -1,9 +1,14 @@
-<h1>Angular Router App</h1>
-<nav>
-  <ul>
-    <li><a routerLink="/home" routerLinkActive="active" ariaCurrentWhenActive="page">Home</a></li>
-    <li><a routerLink="/setting" routerLinkActive="active" ariaCurrentWhenActive="page">Setting</a></li>
-  </ul>
+<mat-toolbar color="primary">
+  <span> Hub </span>
+  <span class="example-fill-remaining-space"></span>
+</mat-toolbar>
+
+<nav mat-tab-nav-bar mat-stretch-tabs="false" mat-align-tabs="start" color="primary"
+  [tabPanel]="tabPanel">
+  <a mat-tab-link *ngFor="let link of navLinks" [routerLink]="link.link" routerLinkActive #rla="routerLinkActive"
+    [active]="rla.isActive">{{link.label}}</a>
 </nav>
-<!-- The routed views render in the <router-outlet>-->
-<router-outlet></router-outlet>
+
+<mat-tab-nav-panel #tabPanel>
+  <router-outlet></router-outlet>
+</mat-tab-nav-panel>
