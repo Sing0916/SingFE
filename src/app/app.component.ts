@@ -1,9 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { RouterLink, RouterLinkActive, RouterOutlet, Router } from '@angular/router';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { Router } from '@angular/router';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-root',
@@ -15,6 +15,7 @@ import { Router } from '@angular/router';
     RouterLinkActive,
     MatTabsModule,
     MatToolbarModule,
+    MatButtonModule,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
@@ -27,7 +28,8 @@ export class AppComponent {
   constructor(private router: Router) {
     this.navLinks = [
       { label: 'Home', link: './home', index: 0 },
-      { label: 'Setting', link: './setting', index: 1 },
+      { label: 'Note', link: './note', index: 1 },
+      { label: 'Setting', link: './setting', index: 2 },
     ];
   }
 
